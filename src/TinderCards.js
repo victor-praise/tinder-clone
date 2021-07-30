@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TinderCard from 'react-tinder-card';
+import database from './firebase';
 import './tindercards.css'
 
 
@@ -8,24 +9,13 @@ import './tindercards.css'
 
 function TinderCards() {
   
-    const [people, setPeople] = useState([
-        {
-            name: 'victor',
-            url: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-        },
-        {
-            name: 'nwatu',
-            url: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-        },
-        {
-            name: 'nwatu',
-            url: 'https://images.pexels.com/photos/1024311/pexels-photo-1024311.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-        },
-    ])
+    const [people, setPeople] = useState([ ])
 
     useEffect(() => {
-
-    }, [people])
+            database.collection('people').onSnapshot(snapshot => (
+                setPeople(snapshot.docs.map(doc => doc.data()))
+            ))
+    }, [])
 
     return (
         <div>
