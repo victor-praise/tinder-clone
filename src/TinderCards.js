@@ -22,7 +22,7 @@ function TinderCards() {
         //         <iframe src="https://prezi.com/embed/fealtalllmdb/" id="iframe_container" frameborder="0" webkitallowfullscreen=""
         //   mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>
         <div>
-            <h2>Cards</h2>
+            {/* <h2>Cards</h2> */}
             <div className="tinderCards__cardContainer">
                 {people.map((person) => (
                     <TinderCard className="swipe"
